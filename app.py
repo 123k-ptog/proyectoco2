@@ -44,15 +44,20 @@ with st.sidebar:
     with st.expander("⚙️ CONFIGURACIÓN", expanded=True):
         theme = st.selectbox("Tema visual", ["Claro", "Oscuro", "Personalizado"])
         if theme == "Personalizado":
-            px.defaults.template = st.color_picker("Elige color principal", "#00f5d4")
-        
+            main_color = st.color_picker("Elige color principal", "#00f5d4")
+        else:
+            main_color = "#636EFA"  # color por defecto de Plotly
+
+        # Verificamos que los países por defecto existan
+        available_countries = df[~df['iso_code'].isna()]['country'].unique()
+        default_countries = [c for c in ["Mexico", "United States", "China", "European Union"] if c in available_countries]
+
         countries = st.multiselect(
             "Seleccionar países",
-            options=df[~df['iso_code'].isna()]['country'].unique(),
-            default=["Mexico", "United States", "China", "European Union"],
+            options=available_countries,
+            default=default_countries,
             max_selections=5
         )
-        
         year_range = st.slider(
             "Rango histórico",
             min_value=1750,
@@ -201,12 +206,17 @@ with tab3:
             "PIB (USD)": "gdp",
             "Intensidad Carbónica": "co2_per_gdp"
         }
+
+        data = country_data[country_data['year'].dt.year == year_range[1]][list(metrics.values())]
+        data = data.rename(columns=dict(zip(metrics.values(), metrics.keys())))
+        data = data.T  # Transponer
+        data.columns = ["Valor"]  # Renombrar la única columna resultante
+
         st.dataframe(
-            country_data[country_data['year'].dt.year == year_range[1]][list(metrics.values())]
-            .rename(columns=dict(zip(metrics.values(), metrics.keys()))
-            .T.rename(columns={0: "Valor"}),
+            data,
             column_config={"Valor": st.column_config.NumberColumn(format="%.2f")}
         )
+
 
 with tab4:
     st.header("Exportación de Datos")
