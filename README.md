@@ -122,7 +122,7 @@ El resultado fue un diseño modular, funcional y replicable, demostrando dominio
 ## 🧾 Instrucciones de Uso
 
 1. Abre la aplicación web en tu navegador:  
-   🌐 [https://tu-enlace-deploy.streamlit.app](https://tu-enlace-deploy.streamlit.app)
+   🌐 [(http://192.168.1.105:8501)]
 
 2. Usa la **barra lateral** para:
    - Seleccionar países de interés
@@ -156,12 +156,10 @@ Al integrar visualización, análisis predictivo y personalización en una sola 
 - `README.md`: Documentación del proyecto (este archivo)
 - `captura_de_pantalla.png`: Imagen de la interfaz con filtros y gráficos activos
 - `prompt.txt`: Texto del prompt utilizado en el desarrollo
-- Enlace web: [https://tu-enlace-deploy.streamlit.app](https://tu-enlace-deploy.streamlit.app) *(actualizar tras desplegar)*
-
----
+- Enlace web: [http://192.168.1.105:8501]
 
 ## 👥 Autor:
-- 👤 Nombre completo del estudiante 2 *(Keren Hapuc Subiroz Galvan - T00065933)*
+- 👤 Nombre completo del estudiante *(Keren Hapuc Subiroz Galvan - T00065933)*
 
 
 ---
