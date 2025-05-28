@@ -157,7 +157,6 @@ Al integrar visualización, análisis predictivo y personalización en una sola 
 - `captura_de_pantalla.png`: Imagen de la interfaz con filtros y gráficos activos
 - ![Captura de pantalla 2025-05-27 214918](https://github.com/user-attachments/assets/3be18a9d-601b-478a-8042-bc97c148a953)
 - ![Captura de pantalla 2025-05-27 214158](https://github.com/user-attachments/assets/d6bc59d5-5d97-4cb9-b097-51610a9c6d30)
-- ![Captura de pantalla 2025-05-27 214330](https://github.com/user-attachments/assets/24d03c7c-938a-485c-8778-6ac4eecc313c)
 - ![Captura de pantalla 2025-05-27 214412](https://github.com/user-attachments/assets/00631fb7-cb54-4aa9-a36d-da5a57ea0b46)
 - ![Captura de pantalla 2025-05-27 214453](https://github.com/user-attachments/assets/a8aae38b-aaf1-4251-a106-7fd3ae05b0b6)
 - ![Captura de pantalla 2025-05-27 214546](https://github.com/user-attachments/assets/ffdb1078-c72b-4a0b-84bb-860c53448c4e)
@@ -173,7 +172,7 @@ Al integrar visualización, análisis predictivo y personalización en una sola 
 
 
 
-- `prompt.txt`: Texto del prompt utilizado en el desarrollo
+- `prompt.txt`: Texto del prompt utilizado en el desarrollo: Crea una aplicación en Streamlit que cargue un dataset de emisiones de CO₂ desde GitHub, permita seleccionar países y un rango de años, y muestre gráficos interactivos (líneas, barras, pastel, mapa de calor) usando Plotly. Agrega predicciones con Prophet y una barra lateral con filtros personalizables. Exporta datos en CSV y el gráfico en HTML.
 - Enlace web: [http://192.168.1.105:8501]
 
 ## 👥 Autor:
