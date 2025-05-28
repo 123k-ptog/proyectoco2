@@ -39,14 +39,26 @@ df, sectors = load_data()
 
 # 3. Barra lateral mejorada
 with st.sidebar:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Global_Carbon_Project_logo.svg/1200px-Global_Carbon_Project_logo.svg.png", width=200)
+    st.image("https://png.pngtree.com/png-vector/20220526/ourmid/pngtree-co2-carbon-dioxide-logo-vector-design-png-image_4724118.png", width=200)
     
     with st.expander("⚙️ CONFIGURACIÓN", expanded=True):
-        theme = st.selectbox("Tema visual", ["Claro", "Oscuro", "Personalizado"])
-        if theme == "Personalizado":
-            main_color = st.color_picker("Elige color principal", "#00f5d4")
-        else:
-            main_color = "#636EFA"  # color por defecto de Plotly
+        # theme = st.selectbox("Tema visual", ["Claro", "Oscuro", "Personalizado"])
+
+        # if theme == "Personalizado":
+        #     main_color = st.color_picker("Elige color principal", "#00f5d4")
+        #     plotly_template = "plotly"
+        # elif theme == "Oscuro":
+        #     main_color = "#636EFA"
+        #     plotly_template = "plotly_dark"
+        # else:
+        #     main_color = "#636EFA"
+        #     plotly_template = "plotly_white"
+
+
+        # if theme == "Personalizado":
+        #     main_color = st.color_picker("Elige color principal", "#00f5d4")
+        # else:
+        #     main_color = "#636EFA"  # color por defecto de Plotly
 
         # Verificamos que los países por defecto existan
         available_countries = df[~df['iso_code'].isna()]['country'].unique()
