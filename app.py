@@ -167,6 +167,131 @@ with tab1:
     
     st.plotly_chart(fig, use_container_width=True, theme="streamlit")
 
+    st.header("Tendencias Globales de Emisiones")
+    
+    # Sección de documentación con pestañas
+    doc_tabs = st.tabs(["📌 Guía Rápida", "🛠️ Tutorial", "⚠️ Limitaciones", "ℹ️ Acerca de"])
+    
+    with doc_tabs[0]:  # Guía Rápida
+        st.markdown("""
+        ### Bienvenido a CO₂ Analytics Pro+
+        Herramienta interactiva para analizar emisiones globales de CO₂ (1750-2022)
+        
+        **Funcionalidades principales:**
+        🌍 | Visualización de tendencias históricas  
+        📊 | Comparación entre países  
+        🔮 | Predicciones con modelo Prophet  
+        🏭 | Análisis sectorial de emisiones  
+        💾 | Exportación de datos en múltiples formatos
+        
+        **Cómo comenzar:**
+        1. Selecciona países en la barra lateral (máx. 5)
+        2. Ajusta el rango de años según tu interés
+        3. Explora las diferentes métricas disponibles
+        """)
+        
+        # Glosario técnico en columnas
+        col_glos1, col_glos2 = st.columns(2)
+        with col_glos1:
+            st.markdown("""
+            **Glosario técnico:**
+            - Mt: Millones de toneladas
+            - t: Toneladas métricas
+            - kg/$: kg por dólar PIB
+            """)
+        
+        with col_glos2:
+            st.markdown("""
+            **Símbolos gráficos:**
+            - ▬ Datos históricos
+            - - - - Predicciones
+            - █ Margen de error
+            """)
+    
+    with doc_tabs[1]:  # Tutorial
+        st.markdown("""
+        ### Tutorial Práctico
+        
+        **Ejemplo 1: Comparación UE vs USA**
+        ```python
+        1. Seleccionar:
+           - European Union
+           - United States
+        2. Ajustar rango: 2000-2022
+        3. Métrica: co2_per_capita
+        4. Activar predicción (5 años)
+        ```
+        
+        **Ejemplo 2: Análisis sectorial**
+        ```python
+        1. Seleccionar solo "China"
+        2. Ir a pestaña 🔍 Detalles
+        3. Explorar mix energético 2020
+        ```
+        
+        **Interpretación gráfica:**
+        ```diff
+        + Colores más cálidos = Mayores emisiones
+        + Eje Y = Países
+        + Eje X = Años
+        ```
+        """)
+    
+    with doc_tabs[2]:  # Limitaciones
+        st.warning("""
+        **Limitaciones importantes:**
+        - Datos sectoriales son estimaciones aproximadas
+        - Predicciones no consideran eventos disruptivos
+        - Rendimiento puede disminuir con >5 países
+        - Actualización automática cada 1 hora
+        """)
+        
+        st.info("""
+        **Solución a problemas comunes:**
+        - Si faltan países: Verificar rango de años
+        - Si los gráficos no se actualizan: Usar botón 🔄
+        - Si la app es lenta: Reducir número de países
+        """)
+    
+    with doc_tabs[3]:  # Acerca de
+        st.markdown("""
+        ### Información técnica
+        **Versión:** 2.1 (Mayo 2024)  
+        **Dataset:** Our World in Data (2023)  
+        **Modelo predictivo:** Facebook Prophet  
+        **Tecnologías:** Python, Streamlit, Plotly  
+        
+        **Soporte técnico:**
+        📧 soporte@co2analytics.edu  
+        🕘 L-V 9:00-18:00 (GMT-5)
+        """)
+        
+        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Global_Carbon_Project_logo.svg/1200px-Global_Carbon_Project_logo.svg.png", 
+                width=200)
+    
+    # Separador visual
+    st.divider()
+    
+    # Contenido principal original (gráficos)
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        metric = st.radio(
+            "Métrica clave",
+            ["co2", "co2_per_capita", "co2_per_gdp"],
+            format_func=lambda x: {
+                "co2": "Emisiones Totales (Mt)",
+                "co2_per_capita": "Per Cápita (t)",
+                "co2_per_gdp": "Por PIB (kg/$)"
+            }[x],
+            horizontal=True
+        )
+    
+    with col2:
+        if st.button("🔄 Actualizar gráficos"):
+            st.cache_data.clear()
+    
+    # ... (resto del código original del gráfico)
+
 with tab2:
     st.header("Análisis Comparativo")
     
