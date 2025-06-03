@@ -276,7 +276,7 @@ with tab1:
     col1, col2 = st.columns([3, 1])
     with col1:
         metric = st.radio(
-            "Métrica clave",
+            "seleccion_metrica",  # ID único modificado
             ["co2", "co2_per_capita", "co2_per_gdp"],
             format_func=lambda x: {
                 "co2": "Emisiones Totales (Mt)",
