@@ -287,7 +287,7 @@ with tab1:
         )
     
     with col2:
-        if st.button("🔄 Actualizar gráficos"):
+        if st.button("🔄 Actualizar Gráfico"):
             st.cache_data.clear()
     
     # ... (resto del código original del gráfico)
