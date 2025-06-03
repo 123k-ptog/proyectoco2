@@ -271,24 +271,7 @@ with tab1:
     
     # Separador visual
     st.divider()
-    
-    # Contenido principal original (gráficos)
-    col1, col2 = st.columns([3, 1])
-    with col1:
-        metric = st.radio(
-            "seleccion_metrica",  # ID único modificado
-            ["co2", "co2_per_capita", "co2_per_gdp"],
-            format_func=lambda x: {
-                "co2": "Emisiones Totales (Mt)",
-                "co2_per_capita": "Per Cápita (t)",
-                "co2_per_gdp": "Por PIB (kg/$)"
-            }[x],
-            horizontal=True
-        )
-    
-    with col2:
-        if st.button("🔄 Actualizar Gráfico"):
-            st.cache_data.clear()
+
     
     # ... (resto del código original del gráfico)
 
